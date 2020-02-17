@@ -1,10 +1,10 @@
 import axios from 'axios'
 const APIKEY = 'test123'
 
-import {newsInfo} from '../const/news'
-import {cityInfo} from '../const/city'
+import { newsInfo } from '../const/news'
+import { cityInfo } from '../const/city'
 import { rumorInfo } from '../const/rumor'
-
+import { chinaInfo } from '../const/map'
 
 // 获取疫情实时新闻
 export function getOnTimeData() {
@@ -36,11 +36,14 @@ export function getRumor() {
 
 // 获取地图json文件
 export function getChinaJson() {
-  return axios({
-    method: 'get',
-    // url: `https://raw.githubusercontent.com/huanent/vue-echarts-map-demo/master/map/china.json`
-    url: `https://data.jianshukeji.com/geochina/china.js`
-  })
+  // return axios({
+  //   method: 'get',
+  //   // url: `https://raw.githubusercontent.com/huanent/vue-echarts-map-demo/master/map/china.json`
+  //   // url: `https://data.jianshukeji.com/geochina/china.js`
+  //   // url: `https://geo.datav.aliyun.com/areas/bound/100000_full.json`
+    
+  // })
+  return chinaInfo
 }
 
 // 获取地图json文件
