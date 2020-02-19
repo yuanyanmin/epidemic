@@ -2,7 +2,7 @@ export function getMapData(staticList) {
   const mapList = [];
   staticList.forEach(item => {
     const mapItem = {
-      name: item.provinceShortName,
+      name: item.provinceName,
       value: item.confirmedCount,
       ...item
     }

@@ -100,6 +100,7 @@ export default {
     },
     tableData(val) {
       this.tableInfo = val;
+      this.initMap();
     }
   },
   methods: {
@@ -110,7 +111,6 @@ export default {
 
       this.echart = Echarts.init(this.$refs.chartMain)
       let chinaMapData = await getChinaJson();
-      console.log('chineaDa', chinaMapData)
       let chinaMapJson = chinaMapData.data
       Echarts.registerMap('china', chinaMapJson)
       
@@ -118,7 +118,18 @@ export default {
         tooltip: {
           show: true,
           formatter: function(params) {
-            
+            let tip = '';
+            if (params.data) {
+              tip = params.name 
+                + ': <br> 确诊：'
+                + params.data['value']
+                + '例 <br> 死亡：'
+                + params.data['deadCount']
+                + '例 <br> 治愈：'
+                + params.data['curedCount']
+                + '例'
+            }
+            return tip;
           }
         },
         visualMap: {
@@ -156,7 +167,7 @@ export default {
             name: '确诊人数',
             type: 'map',
             map: 'china',
-            data: [],
+            data: this.tableData,
           }
         ],
       }
