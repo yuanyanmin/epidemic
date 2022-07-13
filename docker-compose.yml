@@ -6,4 +6,4 @@ services:
     ports:
       - 8877:8080
     volumes:
-      - ./static/serverConfig.js:/etc/web/static/serverConfig.js
+      - ./static/serverConfig.js:/usr/local/nginx/html/static/serverConfig.js
