@@ -5,3 +5,5 @@ services:
     container_name: epidemic
     ports:
       - 8877:8080
+    volumes:
+      - ./static/serverConfig.js:/etc/web/static/serverConfig.js
